@@ -1,0 +1,95 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+  background-attachment: fixed;
+  color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+/* Premium Glass Effect */
+.glass {
+  background: rgba(17, 23, 46, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 153, 0.1);
+  border-radius: 12px;
+}
+
+.glass-dark {
+  background: rgba(10, 14, 39, 0.5);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 255, 153, 0.05);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #00ff99 0%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-primary {
+  background: linear-gradient(90deg, #00ff99 0%, #00cc7d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow Effects */
+.glow-primary {
+  box-shadow: 0 0 30px rgba(0, 255, 153, 0.3);
+}
+
+.glow-accent {
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.3);
+}
+
+.glow-text {
+  text-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 153, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 153, 0.5);
+}
+
+/* Smooth transitions */
+button, a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover glow */
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 153, 0.4) !important;
+}
+
+.hover-glow-accent:hover {
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.4) !important;
+}
