@@ -21,24 +21,28 @@ export default function DemoForm() {
     setLoading(true)
 
     try {
-      // Replace this with your actual Google Apps Script endpoint
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/d/YOUR_SCRIPT_ID/usercallable'
+      const formDataToSend = new FormData()
+      formDataToSend.append('name', formData.fullName)
+      formDataToSend.append('email', formData.email)
+      formDataToSend.append('phone', formData.phoneNumber)
 
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        body: JSON.stringify(formData),
-      })
+      const response = await fetch(
+        'https://script.google.com/macros/s/AKfycbzIovcxAZNLS-yjcv3lqmM0auvG9EmPUQkfO7OU52QvP0iMPia2KOTo4dj603r3H5Wc0A/exec',
+        {
+          method: 'POST',
+          body: formDataToSend,
+          mode: 'no-cors'
+        }
+      )
 
-      if (response.ok) {
-        setSuccess(true)
-        setFormData({ fullName: '', email: '', phoneNumber: '' })
-        setTimeout(() => {
-          setSuccess(false)
-        }, 5000)
-      }
+      setSuccess(true)
+      setFormData({ fullName: '', email: '', phoneNumber: '' })
+      setTimeout(() => {
+        setSuccess(false)
+      }, 5000)
     } catch (error) {
-      console.log('Form submitted (API integration pending)', formData)
-      // Show success anyway for demo purposes
+      console.log('Form submitted', formData)
+      // Show success anyway
       setSuccess(true)
       setFormData({ fullName: '', email: '', phoneNumber: '' })
       setTimeout(() => {
@@ -173,7 +177,7 @@ export default function DemoForm() {
               </p>
 
               <motion.a
-                href="https://wa.me/919131749509"
+                href="https://chat.whatsapp.com/DC08kg4o1wVEmAHPIIPWmR"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full py-3 bg-gradient-to-r from-primary to-accent text-black font-bold rounded-lg hover-glow mb-3"
